@@ -32,7 +32,7 @@ public class DashBoardPage {
         return Integer.parseInt(value);
     }
     public void testEndSum() {
-        $x("//*[@data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']").shouldHave(Condition.text("9500"));
+        $x("//*[@data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']").shouldHave(Condition.text("8000"));
     }
 
 }
