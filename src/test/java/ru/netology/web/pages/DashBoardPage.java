@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class DashBoardPage {
     public TransferPage successLogin() {
         $x("//*[contains(text(),'Личный кабинет')]").should(Condition.appear);
-        $$x("//*[@class='button__content']").filter(Condition.visible).first().doubleClick();
         $$x("//*[@class='button__content']").filter(Condition.visible).first().click();
         return new TransferPage();
     }
@@ -31,8 +30,9 @@ public class DashBoardPage {
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
-    public void testEndSum() {
-        $x("//*[@data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']").shouldHave(Condition.text("9500"));
+    public int getSecondCardBalance() {
+        val text = cards.get(1).text();
+        return extractBalance(text);
     }
 
 }

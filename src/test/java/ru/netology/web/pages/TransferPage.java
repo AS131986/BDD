@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TransferPage {
     public void successfulTransfer(DataHelper.CardInfo cardInfo) {
-        $x("//input[@type='text']").val("500");
+        $x("//input[@type='text']").val(cardInfo.getSumTransfer());
         $x("//input[@type='tel']").val(cardInfo.getSecondCard());
         $(withText("Пополнить")).click();
     }
