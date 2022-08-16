@@ -3,15 +3,21 @@ package ru.netology.web.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import lombok.val;
+import ru.netology.web.data.DataHelper;
+
+import javax.xml.crypto.Data;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class DashBoardPage {
     public TransferPage successLogin() {
+        getFirstCardBalance();
+        getSecondCardBalance();
         $x("//*[contains(text(),'Личный кабинет')]").should(Condition.appear);
         $$x("//*[@class='button__content']").filter(Condition.visible).first().click();
         return new TransferPage();
     }
+
 
     private ElementsCollection cards = $$(".list__item div");
     private final String balanceStart = "баланс: ";
@@ -19,6 +25,7 @@ public class DashBoardPage {
 
     public void Dashboard() {
     }
+
 
     public int getFirstCardBalance() {
         val text = cards.first().text();
